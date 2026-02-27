@@ -5,9 +5,6 @@ class PalindromeCheckerApp {
 
 
     public static void main(String[] args) {
-<<<<<<< HEAD
-        System.out.println("welcome to palindrome checker mangement system");//use case one
-=======
         Scanner sc = new Scanner(System.in);
         System.out.println("welcome to palindrome checker mangement system");//use case 1
 
@@ -19,6 +16,9 @@ class PalindromeCheckerApp {
             } else {
                 System.out.println(word + " is not a palindrome.");
             }
->>>>>>> 98075cc (UC1: Add welcome message module)
     }
 }
+
+
+
+
