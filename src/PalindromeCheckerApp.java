@@ -1,26 +1,32 @@
-import java.util.Scanner;
-class PalindromeCheckerApp {
 
-    //use case 4
-    public static boolean isPalindrome(String str) {
-        char[] charArray = str.toCharArray();
-        int start = 0;
-        int end = charArray.length - 1;
-        while (start < end) {
-            if (charArray[start] != charArray[end]) {
-                return false;            }
-            start++;
-            end--;
-        }
-        return true;
-    }
+public class PalindromeCheckerApp {
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("enter the word  : ");
-                String test1 = sc.nextLine();
-                System.out.println("input: "+test1+" \nIs Palindrome?"+ " → " + isPalindrome(test1));
-            }
-}
 
+        Scanner scanner = new Scanner(System.in);
+        Stack<Character> stack = new Stack<>();
+
+        System.out.println("=== Stack-Based Palindrome Checker ===");
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+
+        String processedInput = input.replaceAll("\\s+", "").toLowerCase();
+
+        for (int i = 0; i < processedInput.length(); i++) {
+            stack.push(processedInput.charAt(i));
+        }
+        String reversedString = "";
+        while (!stack.isEmpty()) {
+            reversedString += stack.pop();
+        }
+        if (processedInput.equals(reversedString)) {
+            System.out.println("Result: The given string is a Palindrome.");
+        } else {
+            System.out.println("Result: The given string is NOT a Palindrome.");
+        }
+
+        scanner.close();
+    }
+}
 
 
