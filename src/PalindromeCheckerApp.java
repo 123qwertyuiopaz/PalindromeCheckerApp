@@ -1,26 +1,34 @@
-
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+// UseCase6
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        String word = "racecar";
+
+        Queue<Character> queue = new LinkedList<>();
         Stack<Character> stack = new Stack<>();
 
-        System.out.println("=== Stack-Based Palindrome Checker ===");
-        System.out.print("Enter a string: ");
-        String input = scanner.nextLine();
-
-        String processedInput = input.replaceAll("\\s+", "").toLowerCase();
-
-        for (int i = 0; i < processedInput.length(); i++) {
-            stack.push(processedInput.charAt(i));
+        for (char ch : word.toCharArray()) {
+            queue.add(ch);
+            stack.push(ch);
         }
-        String reversedString = "";
-        while (!stack.isEmpty()) {
-            reversedString += stack.pop();
+
+        boolean isPalindrome = true;
+
+        while (!queue.isEmpty() && !stack.isEmpty()) {
+            char fromQueue = queue.remove();
+            char fromStack = stack.pop();
+
+            if (fromQueue != fromStack) {
+                isPalindrome = false;
+                break;
+            }
         }
-        if (processedInput.equals(reversedString)) {
-            System.out.println("Result: The given string is a Palindrome.");
+        if (isPalindrome) {
+            System.out.println(word + " is a palindrome.");
         } else {
             System.out.println("Result: The given string is NOT a Palindrome.");
         }
@@ -28,5 +36,3 @@ public class PalindromeCheckerApp {
         scanner.close();
     }
 }
-
-
