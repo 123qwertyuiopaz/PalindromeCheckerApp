@@ -30,7 +30,9 @@ public class PalindromeCheckerApp {
         if (isPalindrome) {
             System.out.println(word + " is a palindrome.");
         } else {
-            System.out.println(word + " is not a palindrome.");
+            System.out.println("Result: The given string is NOT a Palindrome.");
         }
+
+        scanner.close();
     }
 }
