@@ -1,30 +1,41 @@
-import java.util.Deque;
-import java.util.LinkedList;
+
 import java.util.Scanner;
-//UseCase7
-public class PalindromeCheckerApp {
 
-
-    public static boolean isPalindrome(String input) {
+class PalindromeChecker {
+    public boolean checkPalindrome(String input) {
+        if (input == null || input.isEmpty()) {
+            return false;
+        }
 
         String normalized = input.replaceAll("\\s+", "").toLowerCase();
+        char[] chars = normalized.toCharArray();
+        int left = 0;
+        int right = chars.length - 1;
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("welcome to palindrome checker mangement system");//use case 1
-
-       
+        while (left < right) {
+            if (chars[left] != chars[right]) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
     }
+}
 
+public class PalindromeCheckerApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        PalindromeChecker checker = new PalindromeChecker();
 
-        System.out.println("=== UC7: Deque-Based Palindrome Checker ===");
+        System.out.println("=== Palindrome Checker App ===");
         System.out.print("Enter a string to check: ");
         String input = scanner.nextLine();
 
-        if (isPalindrome(input)) {
-            System.out.println("\"" + input + "\" is a Palindrome.");
+        boolean result = checker.checkPalindrome(input);
+
+        if (result) {
+            System.out.println("\"" + input + "\" is a Palindrome!");
         } else {
             System.out.println("\"" + input + "\" is NOT a Palindrome.");
         }
@@ -32,4 +43,3 @@ public class PalindromeCheckerApp {
         scanner.close();
     }
 }
-
