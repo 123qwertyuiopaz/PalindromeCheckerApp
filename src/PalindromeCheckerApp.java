@@ -1,32 +1,43 @@
+
 import java.util.Scanner;
 
-public class PalindromeCheckerApp {
-
-    public static boolean isPalindrome(String str, int start, int end) {
-        if (start >= end) {
-            return true;
-        }
-        if (str.charAt(start) != str.charAt(end)) {
+class PalindromeChecker {
+    public boolean checkPalindrome(String input) {
+        if (input == null || input.isEmpty()) {
             return false;
         }
-        return isPalindrome(str, start + 1, end - 1);
-    }
 
+        String normalized = input.replaceAll("\\s+", "").toLowerCase();
+        char[] chars = normalized.toCharArray();
+        int left = 0;
+        int right = chars.length - 1;
+
+        while (left < right) {
+            if (chars[left] != chars[right]) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+}
+
+public class PalindromeCheckerApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        PalindromeChecker checker = new PalindromeChecker();
 
-        System.out.println("=== UC9: Recursive Palindrome Checker App ===");
+        System.out.println("=== Palindrome Checker App ===");
         System.out.print("Enter a string to check: ");
         String input = scanner.nextLine();
 
-        String normalized = input.replaceAll("\\s+", "").toLowerCase();
-
-        boolean result = isPalindrome(normalized, 0, normalized.length() - 1);
+        boolean result = checker.checkPalindrome(input);
 
         if (result) {
-            System.out.println("\"" + input + "\" is a palindrome.");
+            System.out.println("\"" + input + "\" is a Palindrome!");
         } else {
-            System.out.println("\"" + input + "\" is NOT a palindrome.");
+            System.out.println("\"" + input + "\" is NOT a Palindrome.");
         }
 
         scanner.close();
