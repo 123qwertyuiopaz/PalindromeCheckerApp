@@ -9,18 +9,11 @@ public class PalindromeCheckerApp {
 
         String normalized = input.replaceAll("\\s+", "").toLowerCase();
 
-        Deque<Character> deque = new LinkedList<>();
-        for (char ch : normalized.toCharArray()) {
-            deque.addLast(ch);
-        }
-        while (deque.size() > 1) {
-            char front = deque.removeFirst();
-            char rear = deque.removeLast();
-            if (front != rear) {
-                return false;
-            }
-        }
-        return true;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("welcome to palindrome checker mangement system");//use case 1
+
+       
     }
 
     public static void main(String[] args) {
