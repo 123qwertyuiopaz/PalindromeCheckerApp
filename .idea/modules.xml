@@ -3,10 +3,14 @@
   <component name="ProjectModuleManager">
     <modules>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/B2P22-017.iml" filepath="$PROJECT_DIR$/B2P22-017.iml" />
 =======
       <module fileurl="file://$PROJECT_DIR$/Palindrome Checker App.iml" filepath="$PROJECT_DIR$/Palindrome Checker App.iml" />
 >>>>>>> 30aa6ee9bb512c851b0ab3d349b3a77afa4196af
+=======
+      <module fileurl="file://$PROJECT_DIR$/RA2411050010017-B2P22.iml" filepath="$PROJECT_DIR$/RA2411050010017-B2P22.iml" />
+>>>>>>> a75194999d62040f08897cd7e0e363cacbfe5128
     </modules>
   </component>
 </project>
